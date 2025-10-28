@@ -1,0 +1,1 @@
+Place static assets here that should be copied to dist during build.

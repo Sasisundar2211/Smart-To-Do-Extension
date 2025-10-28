@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Smart To-Do AI",
+  "version": "0.1.0",
+  "description": "AI-powered todo extension with contextual task capture (scaffold).",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "contextMenus",
+    "notifications",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "http://localhost:3001/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "icons/icon16.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "src/content.js"
+      ]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
