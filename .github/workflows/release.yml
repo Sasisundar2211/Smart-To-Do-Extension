@@ -6,6 +6,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -18,7 +20,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Zip dist
-        run: zip -r smart-todo.zip dist/*
+        run: cd dist && zip -r ../smart-todo.zip .
       - name: Create GitHub Release and Upload asset
         uses: softprops/action-gh-release@v2
         with:
